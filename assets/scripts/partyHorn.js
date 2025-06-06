@@ -6,6 +6,29 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   bindListeners();
+  const themeToggle = document.getElementById('theme-toggle');
+  const blueTheme = document.getElementById('blue-theme');
+  
+  if (themeToggle && blueTheme) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      // Store preference in localStorage
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+    
+    blueTheme.addEventListener('click', () => {
+      document.body.classList.toggle('blue');
+      // Store preference in localStorage
+      localStorage.setItem('blueTheme', document.body.classList.contains('blue') ? 'true' : 'false');
+    });
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+    if (localStorage.getItem('blueTheme') === 'true') {
+      document.body.classList.add('blue');
+    }
+  }
 }
 
 function bindListeners() {
