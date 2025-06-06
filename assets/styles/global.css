@@ -114,3 +114,65 @@ main>section {
   grid-template-areas: 'slider icon';
   grid-template-columns: 80% 15%;
 }
+/* Blue Theme */
+body.blue {
+  background-color: lightblue;
+}
+
+body.blue > main {
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark > main {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+body.dark textarea,
+body.dark select,
+body.dark button {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+#explore button,
+#expose button {
+  transform: scale(1.25);
+  transform-origin: left;
+  margin: 15px 0;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+#rate {
+  flex-grow: 1;
+}
+
+header nav button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+body.dark header nav button {
+  background: #333;
+  color: white;
+  border-color: #555;
+}
