@@ -17,6 +17,8 @@
   <header>
     <nav>
       <a href="index.html" title="Go to  party horn">Party Horn</a>
+      <button id="theme-toggle">Dark Mode</button>
+      <button id="blue-theme">Blue Theme</button>
     </nav>
   </header>
   <main>
@@ -29,6 +31,11 @@
       <select name="voice" id="voice-select">
         <option value="select" disabled selected>Select Voice:</option>
       </select>
+      <div class="control-group">
+      <label for="rate">Speed:</label>
+      <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+      <span id="rate-value">1x</span>
+      </div>
       <button>Press to Talk</button>
     </section>
   </main>
