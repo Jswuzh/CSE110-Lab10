@@ -8,6 +8,25 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   setTimeout(() => populateVoices(), 50);
   bindListeners();
+  const themeToggle = document.getElementById('theme-toggle');
+  const blueTheme = document.getElementById('blue-theme');
+  
+  if (themeToggle && blueTheme) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+    
+    blueTheme.addEventListener('click', () => {
+      document.body.classList.toggle('blue');
+    });
+  const rateControl = document.getElementById('rate');
+  const rateValue = document.getElementById('rate-value');
+  
+  if (rateControl && rateValue) {
+    rateControl.addEventListener('input', () => {
+      rateValue.textContent = `${rateControl.value}x`;
+    });
+  }
 }
 
 function populateVoices() {
@@ -30,6 +49,8 @@ function bindListeners() {
     let textToSpeak = textarea.value;
     let utterThis = new SpeechSynthesisUtterance(textToSpeak);
     utterThis.voice = voices[getOptionIndex()];
+    const rateControl = document.getElementById('rate');
+    utterThis.rate = parseFloat(rateControl?.value || 1);
     synth.speak(utterThis);
     openMouth();
   })
